@@ -1,0 +1,20 @@
+meta 表示 元 表示基本的配置项目
+包含：
+1、charset  字符集 即网页的编码方式
+
+2、viewport 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+width=device-width ：表示视口宽度等于屏幕宽度。
+
+3、定义关键字 
+<meta name="Keywords" content="网易,邮箱,游戏,新闻,体育,娱乐,女性,亚运,论坛,短信" />
+这些关键词，就是告诉搜索引擎，这个网页是干嘛的，能够提高搜索命中率。让别人能够找到你，搜索到你
+
+4、页面描述
+只要设置Description页面描述，那么百度搜索结果，就能够显示这些语句，这个技术叫做SEO（search engine optimization，搜索引擎优化）。
+设置页面描述的举例：
+<meta name="Description" content="网易是中国领先的互联网技术公司，为用户提供免费邮箱、游戏、搜索引擎服务，开设新闻、娱乐、体育等30多个内容频道，及博客、视频、论坛等互动交流，网聚人的力量。" />
+
+5、跳转
+<meta http-equiv="refresh" content="3;http://www.baidu.com">
+3秒后跳转到百度网页

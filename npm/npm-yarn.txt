@@ -1,0 +1,6 @@
+npm命令：
+npm list -global npm的本地仓库
+npm install npm -g 升级npm命令
+npm install vue@next  安装最新版vue
+npm install -g @vue/cli 
+npm install vue-router@4 

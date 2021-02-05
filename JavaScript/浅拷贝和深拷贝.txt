@@ -1,0 +1,71 @@
+Object.assgin() 实现浅拷贝（推荐的方式）
+上面的 for in 方法做浅拷贝过于繁琐。ES6 给我们提供了新的语法糖，通过 Object.assgin() 可以实现浅拷贝。
+Object.assgin() 在日常开发中，使用得相当频繁，非掌握不可。
+
+语法：
+// 语法1
+obj2 = Object.assgin(obj2, obj1);
+// 语法2
+Object.assign(目标对象, 源对象1, 源对象2...);
+
+解释：将obj1 拷贝给 obj2。执行完毕后，obj2 的值会被更新。
+作用：将 obj1 的值追加到 obj2 中。如果对象里的属性名相同，会被覆盖。将 obj1 的值追加到 obj2 中。如果两个对象里的属性名相同，则 obj12 中的值会被 obj2 中的值覆盖。
+从语法2中可以看出，Object.assign() 可以将多个“源对象”拷贝到“目标对象”中。
+
+深拷贝其实就是将浅拷贝进行递归。//看来就是新建了一个对象
+用 for in 递归实现深拷贝
+
+代码实现：
+
+let obj1 = {
+    name: 'qianguyihao',
+    age: 28,
+    info: {
+        desc: 'hello',
+    },
+    color: ['red', 'blue', 'green'],
+};
+let obj2 = {};
+
+deepCopy(obj2, obj1);
+console.log(obj2);
+obj1.info.desc = 'github';
+console.log(obj2);
+
+// 方法：深拷贝
+function deepCopy(newObj, oldObj) {
+    for (let key in oldObj) {
+        // 获取属性值 oldObj[key]
+        let item = oldObj[key];
+        // 判断这个值是否是数组
+        if (item instanceof Array) {
+            newObj[key] = [];
+            deepCopy(newObj[key], item);
+        } else if (item instanceof Object) {
+            // 判断这个值是否是对象
+            newObj[key] = {};
+            deepCopy(newObj[key], item);
+        } else {
+            // 简单数据类型，直接赋值
+            newObj[key] = item;
+        }
+    }
+}
+
+
+Object.freeze() 冻结对象
+
+Object.freeze() 方法可以冻结一个对象。一个被冻结的对象再也不能被修改；冻结了一个对象则不能向这个对象添加新的属性，不能删除已有属性，不能修改该对象已有属性的可枚举性、可配置性、可写性，以及不能修改已有属性的值。此外，冻结一个对象后该对象的原型也不能被修改。freeze() 返回和传入的参数相同的对象。
+
+代码举例：
+
+const params = {
+    name: 'qianguyihao';
+    port: '8899';
+}
+
+Object.freeze(params); // 冻结对象 params
+
+params.port = '8080';// 修改无效
+
+上方代码中，把 params 对象冻结后，如果想再改变 params 里面的属性值，是无效的。

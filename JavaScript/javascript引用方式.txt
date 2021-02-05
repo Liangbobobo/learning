@@ -1,0 +1,37 @@
+HTML中的脚本必须放在<script>和</script>之间，脚本可以放在body和head中
+1、JavaScript 代码的书写位置在哪里呢？这个问题，也可以理解成：引入 js 代码，有哪几种方式？
+方式1：行内式
+<input type="button" value="点我点我" onclick="alert('千古壹号')" />
+
+    可以将单行或少量 JS 代码写在HTML标签的事件属性中（以 on 开头的属性），比如放在上面的 onclick点击事件中。
+
+    这种书写方式，不推荐使用，原因是：可读性差，尤其是需要编写大量 JS代码时，容易出错；引号多层嵌套时，也容易出错。
+
+    关于代码中的「引号」，在HTML标签中，我们推荐使用双引号, JS 中我们推荐使用单引号。
+
+
+方式2、内嵌式
+
+我们可以在html 页面的 <body> 标签里放入<script type=”text/javascript”></script>标签对儿，并在<script>里书写JavaScript 代码：
+
+    text表示纯文本，因为JavaScript也是一个纯文本的语言。
+
+    可以将多行JS代码写到 <script> 标签中。
+
+    内嵌式 JS 是学习时常用的方式。
+
+
+方式3：引入外部的 JS 文件
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 引入外部的 js 文件 -->
+	<script src="tool.js"></script>
+</body>
+</html>
+

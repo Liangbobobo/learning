@@ -1,0 +1,3 @@
+计算机\HKEY_CLASSES_ROOT\Directory\Background\shell\鼠标右键显示命令\command
+
+修改值为应用程序的绝对路径

@@ -1,0 +1,5 @@
+缺少 msvcr100.dll 
+进入360人工服务界面，在框框中输入【msvcr100.dll Runtime Error】，点击【查找方案】，
+https://tech.wmzhe.com/article/13071.html
+
+

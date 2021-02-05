@@ -1,0 +1,24 @@
+
+win10企业版2016长期服务版本激活
+
+右键左下角Windows开始图标  ——>  单击  命令提示符（管理员）A
+
+粘贴如下代码到dos窗口：
+
+slmgr /ipk 7GN97-FQ6DF-QBMYV-28KM2-76FCK（2020.10.1能用）
+
+　　可以换激活码，去网上查最新的“Windows 10 LTSB 2016秘钥”
+
+slmgr /skms xykz.f3322.org  或者  slmgr /skms kms.03k.org（2020.10.1，后者能用）
+slmgr /ato
+
+即可
+
+
+
+win10专业版激活
+slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+slmgr /skms kms.03k.org
+slmgr /ato
+
+

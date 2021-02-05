@@ -1,0 +1,10 @@
+定时调用函数，可按照指定的周期（millisec，毫秒）调用函数或计算表达式。
+setinterval（code，millisec，[“lang”]）；
+
+code   必须，需要调用的函数或要执行的代码串
+
+millisec  必须，周期性执行或调用代码串的时间间隔，毫秒
+
+lang     可选，JScript|VBScript|JavaScript
+
+返回值，每次调用setinterval都会产生一个唯一的ID，，可以传递给windows.clearinterval()从而取消对code的周期性执行

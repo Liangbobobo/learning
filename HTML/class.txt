@@ -1,0 +1,10 @@
+HTML DOM className 属性
+
+
+定义和用法
+
+className 属性设置或返回元素的 class 属性。
+语法
+
+object.className=classname
+

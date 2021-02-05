@@ -1,0 +1,79 @@
+Nested Routes 嵌套路由
+
+某些应用程序的UI由嵌套在多个级别的组件组成，组成url的多个段对应一个多层的嵌套组件
+/user/johnny/profile                    	 /user/johnny/posts
++------------------+                 		+-----------------+
+| User                     |                		  | User                  |
+| +--------------+   |                		  | +-------------+ |
+| | Profile                | |      +------------>   	  | | Posts             | |
+| |           	              | |                  | |             | |
+| +--------------+   |                       	  | +-------------+ |
++------------------+                                    +-----------------+
+
+在如下的例子中：
+html：
+<div id="app">
+  <router-view></router-view>  这里的<router-view>是一个顶层的<router-view>，他通过顶层的路由
+  </div>                                       来渲染匹配的组件
+
+js：
+const User = {
+  template: '<div>User {{ $route.params.id }}</div>',
+}
+
+// these are passed to `createRouter`
+const routes = [{ path: '/user/:id', component: User }]
+
+
+同样，渲染的组件也可以包含其自己的嵌套<router-view>
+For example：
+const User = {
+  template: `
+    <div class="user">
+      <h2>User {{ $route.params.id }}</h2>
+      <router-view></router-view>
+    </div>
+  `,
+}
+
+为了在这个嵌套的router-view中渲染组件，需要在routes中使用children选项：
+const routes = [
+  {
+    path: '/user/:id',
+    component: User,
+    children: [
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: 'profile',
+        component: UserProfile,
+      },
+      {
+        // UserPosts will be rendered inside User's <router-view>
+        // when /user/:id/posts is matched
+        path: 'posts',
+        component: UserPosts,
+      },
+    ],
+  },
+]
+
+请注意，以/开头的嵌套路径将被视为根路径，这使您可以利用组件嵌套，而不必使用嵌套的URL
+
+如您所见，children选项只是另一个路由数组，例如路由本身。因此，您可以根据需要保留尽可能多的嵌套视图。
+
+实例：
+https://codesandbox.io/s/nested-views-vue-router-4-examples-hl326?initialpath=%2Fusers%2Feduardo
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+cdn在线引用
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+本地引用
+
+ <script src="C:/Users/liang/node_modules/vue/dist/vue.js"></script>

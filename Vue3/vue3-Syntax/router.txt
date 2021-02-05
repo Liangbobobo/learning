@@ -1,0 +1,5 @@
+<router-view>渲染流程
+
+<router-view>主要负责渲染匹配到的路由组件，在上篇中，为了实现嵌套路由，在匹配RouteRecord后不再直接使用，而是使用Route，其中matched字段包含了匹配到的RouteRecord和其所有祖先RouteRecord。
+
+此时，如果页面当中有多个层级的<router-view>，那么每个<router-view>必须匹配自己层级所对应的组件。

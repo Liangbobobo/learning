@@ -1,0 +1,13 @@
+https://www.cnblogs.com/imyalost/p/8777684.html
+https://www.cnblogs.com/imyalost/p/8777684.html
+
+git init   初始化一个仓库
+
+git add .  向这个本地的代码仓库添加当前目录的所有改动
+
+git add -p  只添加某个文件
+
+git status  查看仓库状态 可以查看改便的文件状态
+
+git push origin master  推送到远程仓库 
+

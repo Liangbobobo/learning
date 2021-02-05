@@ -1,0 +1,8 @@
+Date().toLocaleString()
+
+<p v-if="seen">现在你看到我了</p>    
+seen:1  :0  
+可显示切换，已验证可用于 <span> 标签
+
+
+

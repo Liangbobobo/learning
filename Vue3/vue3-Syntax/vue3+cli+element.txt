@@ -1,0 +1,10 @@
+环境：1、vue
+2、vue/cli 4.5.10 创建时使用 vue3.x 
+
+创建环境：
+1、windows环境下安装 npm install element-plus --save
+2、在创建的项目中，打开终端 vue add element-plus
+
+
+https://blog.csdn.net/weixin_42255190/article/details/111578049
+https://my.oschina.net/u/4929429/blog/4883614

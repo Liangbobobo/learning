@@ -1,0 +1,48 @@
+Vue中export
+export default 向外暴露的成员，可以使用任意的变量来接收
+在一个模块中，export default只允许向外暴露一次
+在一个模块中，可以同时使用export default 和 export向外暴露成员
+
+    // test.vue
+    export default {
+    	address：'深圳'
+    }
+    export var title = '星星'
+    export var zzz = 'hhh'
+
+//mian.vue
+import hahahah , {title as title123 , zzz} from './test.vue'
+ 
+console.log(hahahah)
+console.log(title123 + "6666" + zzz)
+
+打印结果：
+address:‘深圳’
+星星6666hhh
+
+ 
+
+使用export向外暴露成员，只能用{}的形式来接收，这种形式，叫做【按需导出】
+export可以向外暴露多个成员，同时，如果某些成员，我们在import的时候不需要，则可以不在{}中定义
+使用export导出的成员必须严格按照到处时候的名称，来使用{}按需接收；
+如果使用export按需导出的成员想换名称，可以用as进行替换
+
+
+
+
+一个js文件中可以有多个export，但只能有一个export default
+var helloWorld=function(){
+ conselo.log("Hello World");
+}
+var test=function(){
+ conselo.log("this's test function");
+}
+export default{
+ helloWorld,
+ test
+}
+
+全部导入
+import utils from "./utils.js"
+utils.helloWorld();
+utils.test();

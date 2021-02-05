@@ -1,0 +1,10 @@
+鼠标右键中 百度网盘上传
+同时删除
+1、计算机\HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers  中的yunshellext
+2、计算机\HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers  中的yunshellext
+
+
+鼠标右键中 自动上传文件夹到wps文档
+同时删除
+1、计算机\HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers  中的QingNseContextMenu  （kwpsshellext  qingshellext 可删可不删）
+2、计算机\HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers  中的QingNseContextMenu  kwpsshellext  qingshellext

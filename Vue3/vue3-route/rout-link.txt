@@ -1,0 +1,77 @@
+router-link：请注意，我们如何使用自定义组件router-link而不是使用常规a标签来创建链接。这使Vue Router可以更改URL而无需重新加载页面，处理URL生成及其编码。稍后我们将看到如何从这些功能中受益。
+
+router-view：router-view将显示与URL对应的组件。您可以将其放置在任何位置以使其适合您的布局。
+
+通过调用app.use（router），我们可以在任何组件中以this.$ router以及当前路由this.$ route的身份访问它
+
+Throughout the docs, we will often use the router instance. Keep in mind that this.$router is exactly the same as directly using the router instance created through createRouter. The reason we use this.$router is because we don't want to import the router in every single component that needs to manipulate routing.
+
+
+Vue Router and the Composition API
+
+Accessing the Router and current Route inside setup：
+由于在setup中不能使用this，所以也不能直接使用this.$router 和 this.$route，而是用useRouter代替
+import { useRouter, useRoute } from 'vue-router'
+
+export default {
+  setup() {
+    const router = useRouter()
+    const route = useRoute()
+
+    function pushWithQuery(query) {
+      router.push({
+        name: 'search',
+        query: {
+          ...route.query,
+        },
+      })
+    }
+  },
+}
+
+the route对象是一个响应式的对象，他的任何proeprties都可以被watched，因此应该避免watching整个route对象：
+import { useRoute } from 'vue-router'
+export default {
+  setup() {
+    const route = useRoute()
+    const userData = ref()
+
+    // fetch the user information when params change
+    watch(
+      () => route.params,
+      async newParams => {
+        userData.value = await fetchUser(newParams.id)
+      }
+    )
+  },
+}
+
+？Note we still have access to $router and $route in templates, so there is no need to return router or route inside of setup.？
+
+Navigation Guards
+虽然仍然可以通过setup函数使用组件内导航防护，Vue Router exposes 更新和离开守卫作为Composition API functions
+
+Composition API guards也可以通过<router-view>在任何组件中被渲染，它们不必直接用在像是in-component guards的路由组件
+
+useLink
+
+Vue Router暴露了 RouterLink的内部行为作为Composition API function.它赋予访问相同的properties作为the v-slot API:
+
+
+<router-link>'s  v-slot
+<router-link>通过v-slot提供了一定的定制化方案，这是一个高级的api，主要面对库开发者，对一般的开发者也很有用
+    <router-link>的custom选项避免将其内容包装在<a>元素内
+<router-link
+  to="/about"
+  custom
+  v-slot="{ href, route, navigate, isActive, isExactActive }"
+>
+  <NavLink :active="isActive" :href="href" @click="navigate">
+    {{ route.fullPath }}
+  </NavLink>
+</router-link>
+href：解析的url，这将是<a>元素的href属性。它包含base（如果提供
+route：resolved normalized location
+navigate：function to trigger the navigation. It will automatically prevent events when necessary, the same way router-link does, e.g. ctrl or cmd + click will still be ignored by navigate.
+isActive：true if the active class should be applied. Allows to apply an arbitrary class.
+isExactActive：true if the exact active class should be applied. Allows to apply an arbitrary class.

@@ -1,0 +1,16 @@
+<a href="https://router.vuejs.org" target="_blank" rel="noopener">
+vue-router
+</a>
+
+当你使用 target='_blank' 打开一个新的标签页时，新页面的 window 对象上有一个属性 opener，它指向的是前一个页面的 window 对象，因此，后一个页面就获得了前一个页面的控制权
+比如的 a 标签是这样 <a href='/index'>打开连接</a> ，打开后在控制台输入 window.opener.alert(1) 看看？
+
+甚至在跨域的情况下他也可以生效，比如打开 <a href='https://github.com/ZhangFe/Blog'>链接<a/>后，你可以使用 window.opener.location.replace 更改前一个页面的 url。
+
+解决：
+
+比如你的链接现在变成了这样 <a href='/index' rel=noopener>链接<a/> ，再打开后你会发现 window.opener 已经被置为了 null，如果是一些旧的浏览器，可以使用 rel=noreferrer，它不仅禁用了 window.opener，后一个页面也无法获取到 referrer，再不行，可以利用 js 来打开新的页面，之后将 opener 置为 null 来完成这个功能
+
+var otherWindow = window.open();
+otherWindow.opener = null;
+otherWindow.location = url;
