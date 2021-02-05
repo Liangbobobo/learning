@@ -1,0 +1,110 @@
+<body>
+    <div id="counter">
+        <p>{{ counter }}</p>
+        <button @click="increment">
+        点击发送get
+        </button>
+      </div>
+      
+
+    <script> 
+   const Counter = {
+  data() {
+    return {
+      counter:1
+    }
+  }, 
+  created() {
+    // `this` 指向 vm 实例  钩子函数中的使用
+     this.counter=111 // => "count is: 1"
+  },
+  methods: {
+    
+        increment()
+        {   this.counter=111111    //方法中的使用，外部则需要vm.counter 
+            axios.get('https://github.com/axios/axios')
+             .then(function (response) {
+              console.log(response.data);
+              console.log(response.status);
+              console.log(response.statusText);
+              console.log(response.headers);
+              console.log(response.config);
+  });
+          }
+  
+    }
+}
+
+Vue.createApp(Counter).mount('#counter')
+
+
+
+    
+    </script>
+    
+</body>
+</html>
+
+
+完整例子：
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    
+</head>
+<body>
+    <div id="counter">
+        <p>{{ counter }}</p>
+        <button @click="increment">
+        点击发送get
+        </button>
+      </div>
+      
+
+    <script>
+        
+
+   const Counter = {
+  data() {
+    return {
+      counter:1
+    }
+  }, 
+  created() {
+    // `this` 指向 vm 实例
+     this.counter=111 // => "count is: 1"
+  },
+  methods: {
+    
+        increment()
+        {   this.counter=111111
+            axios.get('https://github.com/axios/axios')
+             .then(function (response) {
+              console.log(response.data);
+              console.log(response.status);
+              console.log(response.statusText);
+              console.log(response.headers);
+              console.log(response.config);
+  });
+          }
+  
+    }
+}
+
+Vue.createApp(Counter).mount('#counter')
+
+
+
+    
+    </script>
+    
+</body>
+</html>
+
+
+

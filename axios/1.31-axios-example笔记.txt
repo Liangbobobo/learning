@@ -1,0 +1,8 @@
+axios-example源码分析：
+
+1、该项目没有.html文件，加载的主html文件用js文件生成：
+2、项目中使用的axios.all()已经不推荐，应该用promise.all取代
+
+
+？XMLHttpRequest()
+https://developer.mozilla.org/zh-cn/docs/Web/API/XMLHttpRequest

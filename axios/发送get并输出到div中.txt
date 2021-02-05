@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="counter">
+        <p>{{ counter }}</p>
+        <button @click="increment">
+        点击发送get
+        </button>
+      </div>
+    <script>
+   const Counter = {
+        data() {
+        return {
+        counter:[]
+    }
+  }, 
+    methods: {
+     increment()
+        {   
+        axios.get('https://github.com/axios/axios')
+         .then((response) => {
+         this.counter=response.request
+        })
+     }
+    },
+}
+Vue.createApp(Counter).mount('#counter')   
+    </script>    
+</body>
+</html>
