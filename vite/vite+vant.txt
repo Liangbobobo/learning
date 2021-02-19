@@ -1,0 +1,15 @@
+element plus 引入：https://blog.csdn.net/ch834301/article/details/113578048
+https://zhuanlan.zhihu.com/p/344527515
+
+vite 引入 vant
+1.在项目中加入 npm i vant@next -S
+2.main.js中 
+import Vant from 'vant'
+import 'vant/lib/index.css'
+
+
+createApp(App)
+    .use(Vant)
+    .mount('#app')
+3. yarn dev
+    
