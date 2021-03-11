@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/208105/how-do-i-remove-a-property-from-a-javascript-object

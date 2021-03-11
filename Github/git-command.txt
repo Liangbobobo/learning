@@ -9,5 +9,7 @@ git add -p  只添加某个文件
 
 git status  查看仓库状态 可以查看改便的文件状态
 
+git commit -m "2021.2.5初始使用git整理的文档"
+
 git push origin master  推送到远程仓库 
 

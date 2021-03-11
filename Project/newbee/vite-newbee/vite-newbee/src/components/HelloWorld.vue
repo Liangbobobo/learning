@@ -25,6 +25,6 @@ const state = reactive({ count: 0 })
 
 <style scoped>
 a {
-  color: #b1b942;
+  color: #42b983;
 }
 </style>
